@@ -25,6 +25,7 @@
       - name: terminator
       - name: gdebi
       - name: scdaemon
+      - name: fasd
 
   - name: install language support for zh
     shell: apt install -y $(check-language-support -l zh-hant) | true
