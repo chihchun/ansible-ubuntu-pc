@@ -22,7 +22,7 @@
       - name: gdebi
 
   - name: install language support for zh
-    shell: apt install $(check-language-support -l zh) | true
+    shell: apt install -y $(check-language-support -l zh-hant) | true
     register: language_support
 
   - name: install Chinese language packages and fcitx
@@ -32,7 +32,6 @@
       purge: yes
 
     with_items:
-      - name: language-pack-gnome-zh-hant
       - name: fcitx
       - name: fcitx-chewing
 
