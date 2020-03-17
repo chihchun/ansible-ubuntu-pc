@@ -1,0 +1,10 @@
+- name: download lastpass
+  get_url:
+    url: https://download.cloud.lastpass.com/linux/lplinux.tar.bz2
+    dest: "/tmp/"
+
+- name: install lastpass
+  shell: tar xjvf lplinux.tar.bz2 --overwrite && ./install_lastpass.sh
+  args:
+    chdir: /tmp
+    

@@ -51,7 +51,6 @@
       dest: "/tmp/"
 
   - name: install google chrome
-    become: yes
     shell: gdebi -n /tmp/google-chrome-stable_current_amd64.deb
 
   - name: download dropbox
@@ -60,22 +59,26 @@
       dest: "/tmp/dropbox.deb"
 
   - name: install dropbox
-    become: yes
     shell: gdebi -n /tmp/dropbox.deb
 
+  - name: install proprietary software
+    import_tasks: proprietary.yml
+
   become: yes
   become_user: root
 
-- name: Setup fcitx
-  command: "im-config -n fcitx"
+- name: Setup for personal settings.
+  block:
+  - name: Setup fcitx
+    command: "im-config -n fcitx"
 
-- name: Change default shell to zsh
-  shell: chsh -s $(which zsh) "{{ansible_ssh_user}}"
-  become: yes
-  become_user: root
+  - name: Change default shell to zsh
+    shell: chsh -s $(which zsh) "{{ansible_ssh_user}}"
+    become: yes
+    become_user: root
 
-- name: ohmyzsh zsh configuration
-  git:
-    repo: 'https://github.com/chihchun/oh-my-zsh.git'
-    dest: "{{ansible_env.HOME}}/.oh-my-zsh"
-    version: chihchun
+  - name: ohmyzsh zsh configuration
+    git:
+      repo: 'https://github.com/chihchun/oh-my-zsh.git'
+      dest: "{{ansible_env.HOME}}/.oh-my-zsh"
+      version: chihchun
