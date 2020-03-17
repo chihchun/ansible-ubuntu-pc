@@ -1,0 +1,10 @@
+- name: copy stuff
+  synchronize:
+      src: "{{lookup('env','HOME')}}/stuff"
+      dest: "/home/{{ansible_ssh_user}}"
+
+- name: setup bin
+  shell: ln -s "/home/{{ansible_ssh_user}}/stuff/bin" "/home/{{ansible_ssh_user}}/bin"
+
+- name: setup configurations
+  shell: "/home/{{ansible_ssh_user}}/stuff/etc/setuppath.sh"

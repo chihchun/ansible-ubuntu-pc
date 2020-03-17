@@ -73,3 +73,6 @@
       repo: 'https://github.com/chihchun/oh-my-zsh.git'
       dest: "{{ansible_env.HOME}}/.oh-my-zsh"
       version: chihchun
+
+  - name: copy personal data
+    import_tasks: stuff.yml
