@@ -1,2 +1,3 @@
 [desktop]
 g7-7790.local ansible_ssh_user=chihchun
+u-xps-13-7390.local ansible_ssh_user=u
