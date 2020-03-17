@@ -29,8 +29,20 @@
       - name: language-pack-gnome-zh-hant
       - name: fcitx
       - name: fcitx-chewing
+
   become: yes
   become_user: root
 
 - name: Setup fcitx
   command: "im-config -n fcitx"
+
+- name: Change shell to zsh
+  command: "chsh  -s /usr/bin/zsh {{ansible_ssh_user}}"
+  become: yes
+  become_user: root
+
+- name: ohmyzsh zsh configuration
+  git:
+    repo: 'https://github.com/chihchun/oh-my-zsh.git'
+    dest: "{{ansible_env.HOME}}/.oh-my-zsh"
+    version: chihchun
