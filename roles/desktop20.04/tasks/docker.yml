@@ -1,0 +1,21 @@
+- name: Add Docker archive key
+  become: yes
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+
+- name: Add Docker repository
+  become: yes
+  apt_repository:
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ hostvars[inventory_hostname].ansible_facts.lsb.codename }} stable"
+    filename: docker-ce
+
+- name: install docker-ce
+  apt:
+    name: "{{item}}"
+    state: '{{ item.state | default("present") }}'
+  with_items:
+    - docker-ce
+
+- name: add remote user to docker group
+  become: yes
+  shell: usermod -aG docker "{{ ansible_ssh_user }}"
