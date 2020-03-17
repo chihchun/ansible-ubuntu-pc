@@ -46,8 +46,8 @@
 - name: Setup fcitx
   command: "im-config -n fcitx"
 
-- name: Change shell to zsh
-  command: "chsh  -s /usr/bin/zsh {{ansible_ssh_user}}"
+- name: Change default shell to zsh
+  shell: chsh -s $(which zsh) "{{ansible_ssh_user}}"
   become: yes
   become_user: root
 
