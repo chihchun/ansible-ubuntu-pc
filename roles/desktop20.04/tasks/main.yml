@@ -45,22 +45,6 @@
       - name: unison
       - name: rsync
 
-  - name: download google chrome
-    get_url:
-      url:  https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-      dest: "/tmp/"
-
-  - name: install google chrome
-    shell: gdebi -n /tmp/google-chrome-stable_current_amd64.deb
-
-  - name: download dropbox
-    get_url:
-      url:  https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2020.03.04_amd64.deb
-      dest: "/tmp/dropbox.deb"
-
-  - name: install dropbox
-    shell: gdebi -n /tmp/dropbox.deb
-
   - name: install proprietary software
     import_tasks: proprietary.yml
 
