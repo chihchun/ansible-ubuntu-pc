@@ -1,0 +1,5 @@
+.gitignore
+ansible.log
+*.retry
+deploy.sh
+hosts
