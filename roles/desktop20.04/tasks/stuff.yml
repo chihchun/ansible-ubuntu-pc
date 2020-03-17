@@ -3,8 +3,11 @@
       src: "{{lookup('env','HOME')}}/stuff"
       dest: "/home/{{ansible_ssh_user}}"
 
-- name: setup bin
-  shell: ln -s "/home/{{ansible_ssh_user}}/stuff/bin" "/home/{{ansible_ssh_user}}/bin"
+- name: Create symbolic link to bin
+  file:
+    src: "/home/{{ansible_ssh_user}}/stuff/bin"
+    dest: "/home/{{ansible_ssh_user}}/bin"
+    state: link
 
 - name: setup configurations
   shell: "/home/{{ansible_ssh_user}}/stuff/etc/setuppath.sh"
