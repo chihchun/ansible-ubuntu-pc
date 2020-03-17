@@ -19,6 +19,7 @@
 
     with_items:
       - name: terminator
+      - name: gdebi
 
   - name: install language support for zh
     shell: apt install $(check-language-support -l zh) | true
@@ -44,6 +45,15 @@
     with_items:
       - name: unison
       - name: rsync
+
+  - name: download google chrome
+    get_url:
+      url:  https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+      dest: "/tmp/"
+
+  - name: install google chrome
+    become: yes
+    shell: gdebi -n /tmp/google-chrome-stable_current_amd64.deb
 
   become: yes
   become_user: root
