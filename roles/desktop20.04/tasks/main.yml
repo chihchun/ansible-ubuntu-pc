@@ -31,3 +31,6 @@
       - name: fcitx-chewing
   become: yes
   become_user: root
+
+- name: Setup fcitx
+  command: "im-config -n fcitx"
