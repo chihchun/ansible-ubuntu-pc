@@ -11,6 +11,7 @@
       - name: devscripts
       - name: build-essential
 
+  # The dockerr for focal is not ready yet.
   # - name: install docker
   #   import_tasks: docker.yml
 
