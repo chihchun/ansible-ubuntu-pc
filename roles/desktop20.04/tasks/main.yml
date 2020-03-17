@@ -1,7 +1,7 @@
 
 - name: Install packages
   block:
-  - name: install dev packages
+  - name: install build tools packages
     apt:
       name: '{{ item.name }}'
       state: '{{ item.state | default("present") }}'
@@ -9,6 +9,7 @@
 
     with_items:
       - name: devscripts
+      - name: build-essential
 
   - name: install desktop packages
     apt:
