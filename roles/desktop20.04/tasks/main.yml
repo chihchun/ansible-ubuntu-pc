@@ -1,28 +1,33 @@
-- name: install dev packages
-  apt:
-    name: '{{ item.name }}'
-    state: '{{ item.state | default("present") }}'
-    purge: yes
 
-  with_items:
-    - name: devscripts
+- name: Install packages
+  block:
+  - name: install dev packages
+    apt:
+      name: '{{ item.name }}'
+      state: '{{ item.state | default("present") }}'
+      purge: yes
 
-- name: install desktop packages
-  apt:
-    name: '{{ item.name }}'
-    state: '{{ item.state | default("present") }}'
-    purge: yes
+    with_items:
+      - name: devscripts
 
-  with_items:
-    - name: terminator
+  - name: install desktop packages
+    apt:
+      name: '{{ item.name }}'
+      state: '{{ item.state | default("present") }}'
+      purge: yes
 
-- name: install Chinese language packages
-  apt:
-    name: '{{ item.name }}'
-    state: '{{ item.state | default("present") }}'
-    purge: yes
+    with_items:
+      - name: terminator
 
-  with_items:
-    - name: language-pack-gnome-zh-hant
-    - name: fcitx
-    - name: fcitx-chewing
+  - name: install Chinese language packages
+    apt:
+      name: '{{ item.name }}'
+      state: '{{ item.state | default("present") }}'
+      purge: yes
+
+    with_items:
+      - name: language-pack-gnome-zh-hant
+      - name: fcitx
+      - name: fcitx-chewing
+  become: yes
+  become_user: root
