@@ -1,6 +1,7 @@
 
 # How to play
-
+- Install ansiable
+    > apt install ansible
 - Deploy Ubuntu on a fresh-installed machine.
 - Ensure if the machine is avaialbile on the zeroconf.
     > avahi-resolve -n -4 -v xps-13-7390.local
@@ -14,3 +15,22 @@
 
 - Deploy the playbook to the machine
     > ansible-playbook -v --ask-become-pass --extra-vars=hosts=xps-13-7390.local desktop.yml
+
+
+# Known issue on focal (Ubuntu 20.04)
+- python3 is the default on focal, need to link python3 to /usr/bin/python.
+    >  sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1
+
+- ansible 2.5.1+dfsg-1ubuntu0.1 in bionic does not work well with python3, it requires a patch.
+
+        --- /usr/lib/python2.7/dist-packages/ansible/modules/packaging/os/apt_repository.py	2018-04-19 08:01:49.000000000 +0800
+        +++ /tmp/apt_repository.py	2020-03-18 00:05:12.980457762 +0800
+        @@ -188,7 +188,7 @@
+                    for n, valid, enabled, source, comment in sources:
+                        if valid:
+                            yield file, n, enabled, source, comment
+        -        raise StopIteration
+        +        # raise StopIteration
+        
+            def _expand_path(self, filename):
+                if '/' in filename:
