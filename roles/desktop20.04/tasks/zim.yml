@@ -1,0 +1,10 @@
+- name: add zim ppa
+  apt_repository:
+    repo: "ppa:chihchun/zim"
+
+- name: install zim
+  apt:
+    name: "{{item}}"
+    state: '{{ item.state | default("present") }}'
+  with_items:
+    - zim
