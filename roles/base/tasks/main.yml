@@ -1,0 +1,17 @@
+- name: upgrade packages
+  apt:
+    upgrade: dist
+    update_cache: yes
+
+        
+- name: install base packages
+  apt:
+    name: '{{ item.name }}'
+    state: '{{ item.state | default("present") }}'
+    purge: yes
+
+  with_items:
+    - name: htop
+    - name: tmux
+    - name: zsh
+    - name: vim
