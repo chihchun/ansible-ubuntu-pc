@@ -20,7 +20,11 @@
     with_items:
       - name: terminator
 
-  - name: install Chinese language packages
+  - name: install language support for zh
+    shell: apt install $(check-language-support -l zh) | true
+    register: language_support
+
+  - name: install Chinese language packages and fcitx
     apt:
       name: '{{ item.name }}'
       state: '{{ item.state | default("present") }}'
