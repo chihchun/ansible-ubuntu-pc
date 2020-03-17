@@ -30,6 +30,16 @@
       - name: fcitx
       - name: fcitx-chewing
 
+  - name: install sync tools
+    apt:
+      name: '{{ item.name }}'
+      state: '{{ item.state | default("present") }}'
+      purge: yes
+
+    with_items:
+      - name: unison
+      - name: rsync
+
   become: yes
   become_user: root
 
