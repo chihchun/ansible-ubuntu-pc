@@ -14,7 +14,7 @@
 
   # The dockerr for focal is not ready yet.
   # - name: install docker
-  #   import_tasks: docker.yml
+  #   import_tasks: docker.yaml
 
   - name: install desktop packages
     apt:
@@ -54,29 +54,10 @@
       - name: rsync
 
   - name: install zim
-    import_tasks: zim.yml
+    import_tasks: zim.yaml
 
   - name: install proprietary software
-    import_tasks: proprietary.yml
+    import_tasks: proprietary.yaml
 
   become: yes
   become_user: root
-
-- name: Setup for personal settings.
-  block:
-  - name: Setup fcitx
-    command: "im-config -n fcitx"
-
-  - name: Change default shell to zsh
-    shell: chsh -s $(which zsh) "{{ansible_ssh_user}}"
-    become: yes
-    become_user: root
-
-  - name: ohmyzsh zsh configuration
-    git:
-      repo: 'https://github.com/chihchun/oh-my-zsh.git'
-      dest: "{{ansible_env.HOME}}/.oh-my-zsh"
-      version: chihchun
-
-  - name: copy personal data
-    import_tasks: stuff.yml

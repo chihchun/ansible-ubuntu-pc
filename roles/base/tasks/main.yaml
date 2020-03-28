@@ -1,5 +1,4 @@
-
-- name: Install packages
+- name: Install packages which I can not live without
   block:
   - name: upgrade packages
     apt:
