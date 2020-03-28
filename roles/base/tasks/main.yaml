@@ -14,7 +14,6 @@
     with_items:
       - name: htop
       - name: tmux
-      - name: zsh
       - name: vim
 
   become: yes

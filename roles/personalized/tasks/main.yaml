@@ -1,6 +1,23 @@
 
 - name: Setup for personal settings.
   block:
+
+  - name: install zim
+    import_tasks: zim.yaml
+    become: yes
+    become_user: root
+
+  - name: install build tools packages
+    apt:
+      name: '{{ item.name }}'
+      state: '{{ item.state | default("present") }}'
+      purge: yes
+
+    with_items:
+      - name: zsh
+    become: yes
+    become_user: root
+
   - name: Change default shell to zsh
     shell: chsh -s $(which zsh) "{{ansible_ssh_user}}"
     become: yes

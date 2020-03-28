@@ -53,9 +53,6 @@
       - name: unison
       - name: rsync
 
-  - name: install zim
-    import_tasks: zim.yaml
-
   - name: install proprietary software
     import_tasks: proprietary.yaml
 
