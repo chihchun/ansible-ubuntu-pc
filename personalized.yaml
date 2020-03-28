@@ -3,5 +3,5 @@
   gather_facts: yes
   roles:
     - base
-    - desktop20.04
+    - desktop-focal
     - personalized
