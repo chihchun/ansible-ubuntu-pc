@@ -1,0 +1,19 @@
+- name: Disable APT updates
+  block:
+
+  - name: Disable Update-Package-Lists.
+    replace:
+      path: /etc/apt/apt.conf.d/20auto-upgrades
+      regexp: '^(APT::Periodic::Update-Package-Lists) ".";$'
+      replace: '\1 "0";'
+      backup: yes
+
+  - name: Disable Unattended-Upgrade.
+    replace:
+      path: /etc/apt/apt.conf.d/20auto-upgrades
+      regexp: '^(APT::Periodic::Unattended-Upgrade) ".";$'
+      replace: '\1 "0";'
+      backup: yes
+
+  become: yes
+  become_user: root
