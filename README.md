@@ -11,7 +11,7 @@
 
         [desktop]
         g7-7790.local ansible_ssh_user=chihchun
-        xps-13-7390.local ansible_ssh_user=u
+        xps-13-7390.local ansible_ssh_user=u ansible_sudo_pass=u
 
 - Deploy the playbook to the machine
     > ansible-playbook -v --ask-become-pass --extra-vars=hosts=xps-13-7390.local desktop.yml
