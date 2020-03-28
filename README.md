@@ -18,9 +18,6 @@
 
 
 # Known issue on focal (Ubuntu 20.04)
-- python3 is the default on focal, need to link python3 to /usr/bin/python.
-    >  sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1
-
 - ansible 2.5.1+dfsg-1ubuntu0.1 in bionic does not work well with python3, it requires a patch.
 
         --- /usr/lib/python2.7/dist-packages/ansible/modules/packaging/os/apt_repository.py	2018-04-19 08:01:49.000000000 +0800
