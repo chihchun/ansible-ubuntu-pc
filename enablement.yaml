@@ -2,4 +2,5 @@
 - hosts: '{{ hosts }}'
   gather_facts: yes
   roles:
+    - base
     - enablement-focal

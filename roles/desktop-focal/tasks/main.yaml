@@ -1,6 +1,11 @@
 
 - name: Install packages
   block:
+  - name: upgrade packages
+    apt:
+      upgrade: dist
+      update_cache: yes
+
   - name: install build tools packages
     apt:
       name: '{{ item.name }}'

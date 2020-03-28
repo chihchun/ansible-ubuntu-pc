@@ -1,9 +1,5 @@
 - name: Install packages which I can not live without
   block:
-  - name: upgrade packages
-    apt:
-      upgrade: dist
-      update_cache: yes
 
   - name: install base packages
     apt:
