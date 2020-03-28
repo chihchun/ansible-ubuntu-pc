@@ -1,0 +1,10 @@
+- shell: echo "deb http://archive.ubuntu.com/ubuntu/ $(lsb_release -cs)-proposed main restricted universe multiverse\ndeb-src http://archive.ubuntu.com/ubuntu/ $(lsb_release -cs)-proposed main restricted universe multiverse"
+  register: src
+
+- copy: 
+    dest: /etc/apt/sources.list.d/proposed.list
+    content: '{{src.stdout}}'
+    force: no
+
+  become: yes
+  become_user: root

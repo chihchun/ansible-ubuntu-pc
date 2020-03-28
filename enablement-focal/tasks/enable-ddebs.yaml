@@ -1,0 +1,11 @@
+# Eanable Debug Symbol Packages - https://wiki.ubuntu.com/Debug%20Symbol%20Packages
+- shell: echo "deb http://ddebs.ubuntu.com $(lsb_release -cs) main restricted universe multiverse\ndeb http://ddebs.ubuntu.com $(lsb_release -cs)-updates main restricted universe multiverse\ndeb http://ddebs.ubuntu.com $(lsb_release -cs)-proposed main restricted universe multiverse"
+  register: src
+
+- copy: 
+    dest: /etc/apt/sources.list.d/ddebs.list
+    content: '{{src.stdout}}'
+    force: no
+
+  become: yes
+  become_user: root
