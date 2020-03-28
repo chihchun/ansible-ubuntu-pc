@@ -1,0 +1,12 @@
+- apt_repository:
+    repo: "ppa:checkbox-dev/ppa"
+  become: yes
+  become_user: root
+
+- apt:
+    name: "{{item}}"
+    state: '{{ item.state | default("present") }}'
+  with_items:
+    - prepare-checkbox-sanity
+  become: yes
+  become_user: root
