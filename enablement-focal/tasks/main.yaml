@@ -1,0 +1,7 @@
+- name: Setup mDNS/zeroconf/avahi.
+  import_tasks: avahi.yaml
+# - name: Install local-sanity scripts.
+# - name: Disable apt auto-update.
+# - name: Turn On/off apt source.
+# - name: Turn on/off proposed channel.
+# - name: Change the timeout for screen dim/suspend.

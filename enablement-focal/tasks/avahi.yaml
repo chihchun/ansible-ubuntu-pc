@@ -1,0 +1,33 @@
+# Ubuntu Manpage: avahi-daemon.conf - avahi-daemon configuration file - http://manpages.ubuntu.com/manpages/focal/man5/avahi-daemon.conf.5.html
+- name: Update configuration of avahi
+  block:
+
+  # An implicit TXT entry will be added to all locally registered services, containing a cookie value which is chosen  randomly  on  daemon  startup.
+  - name: Register Service Cookie.
+    replace:
+      path: /etc/avahi/avahi-daemon.conf
+      regexp: '^.?(add-service-cookie)=no$'
+      replace: '\1=yes'
+
+  # Register an mDNS HINFO record on all interfaces which contains information about the local operating  system  and  CPU
+  - name: Register HINFO record
+    replace:
+      path: /etc/avahi/avahi-daemon.conf
+      regexp: '^.?(publish-hinfo)=no$'
+      replace: '\1=yes'
+
+  # Register a service of type "_workstation._tcp" on the local LAN.
+  - name: Register "_workstation._tcp"
+    replace:
+      path: /etc/avahi/avahi-daemon.conf
+      regexp: '^.?(publish-workstation)=no$'
+      replace: '\1=yes'
+
+  - name: restart avahi service
+    systemd:
+      state: restarted
+      daemon_reload: yes
+      name: avahi-daemon
+
+  become: yes
+  become_user: root

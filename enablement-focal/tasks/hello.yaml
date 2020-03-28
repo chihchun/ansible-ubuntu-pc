@@ -1,0 +1,2 @@
+- name: print hello
+  shell: echo hello world
