@@ -38,6 +38,7 @@ This Anisble playbook is designed as a toolkit to help a Ubuntu Developer, quick
 
  - Run a Checkbox test job, and fetch the report back to /tmp
     > ./run-checkbox.sh u-xps-13-7390.local com.canonical.certification::smoke
+
     > ./run-checkbox.sh u-xps-13-7390.local com.canonical.certification::graphics/gl_support
 
 ## How to play
