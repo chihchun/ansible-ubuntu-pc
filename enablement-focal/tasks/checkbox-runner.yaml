@@ -1,0 +1,13 @@
+- tempfile:
+    state: file
+    prefix: checkbox-{{checkbox_job}}-
+    suffix: .tar
+  register: report
+
+# only supports non-interactive job.
+- shell: checkbox-cli run --non-interactive "{{checkbox_job}}"
+- fetch:
+    src: "{{report.path}}"
+    dest: "/tmp/"
+    fail_on_missing: yes
+    flat: no

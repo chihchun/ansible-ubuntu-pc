@@ -9,6 +9,12 @@ This Anisble playbook is designed as a toolkit to help a Ubuntu Developer, quick
 - Quickly setup a machine with utilus for Desktop (including Google Chrome, Dropbox)
     > ./deploy-playbook.sh xps-13-7390.local desktop.yml
 
+- Instgall Google Chrome
+    > ./run-task.sh u-xps-13-7390.local roles/desktop-focal/tasks/google-chrome.yaml 
+
+- Instgall Dropbox
+    > ./run-task.sh u-xps-13-7390.local roles/desktop-focal/tasks/dropbox.yaml 
+
 - Setup checkbox for PC sanity tests, which is a test suite to verify if the system are well enabled.
     > ./deploy-playbook.sh xps-13-7390.local enablement.yml
 
@@ -30,11 +36,8 @@ This Anisble playbook is designed as a toolkit to help a Ubuntu Developer, quick
 - Register HINFO/workstation on mDNS.
     > ./run-task.sh u-xps-13-7390.local enablement-focal/tasks/avahi.yaml
 
-- Instgall Google Chrome
-    > ./run-task.sh u-xps-13-7390.local roles/desktop-focal/tasks/google-chrome.yaml 
-
-- Instgall Dropbox
-    > ./run-task.sh u-xps-13-7390.local roles/desktop-focal/tasks/dropbox.yaml 
+ - Run a Checkbox test job, and fetch the report back to /tmp
+    > ./run-checkbox.sh u-xps-13-7390.local com.canonical.certification::smoke
 
 ## How to play
 - Install ansiable on your workstation. 
