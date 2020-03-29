@@ -1,13 +1,30 @@
 - tempfile:
     state: file
-    prefix: checkbox-{{checkbox_job}}-
+    prefix: checkbox-{{checkbox_job | regex_replace('/','_') }}-
     suffix: .tar
   register: report
 
+- tempfile:
+    state: file
+    prefix: checkbox-{{checkbox_job | regex_replace('/','_') }}-
+    suffix: .log
+  register: logfile
+
 # only supports non-interactive job.
-- shell: checkbox-cli run --non-interactive "{{checkbox_job}}"
+- shell: checkbox-cli run --non-interactive --output-format "com.canonical.plainbox::tar" --output-file "{{report.path}}" "{{checkbox_job}}"
+  register: log
+  environment:
+    DISPLAY: ":0.0"
+
+- copy:
+    content: "{{log.stdout}}"
+    dest: "{{logfile.path}}"
+
 - fetch:
-    src: "{{report.path}}"
+    src: "{{item.path}}"
     dest: "/tmp/"
     fail_on_missing: yes
     flat: no
+  with_items:
+    - path: "{{report.path}}"
+    - path: "{{logfile.path}}"
