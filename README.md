@@ -37,10 +37,10 @@ This Anisble playbook is designed as a toolkit to help a Ubuntu Developer, quick
     > ./run-task.sh u-xps-13-7390.local roles/desktop-focal/tasks/dropbox.yaml 
 
 ## How to play
-- Install ansiable
+- Install ansiable on your workstation. 
     > apt install ansible
-- Deploy Ubuntu on a fresh-installed machine.
-- Ensure if the machine is avaialbile on the zeroconf.
+- Deploy Ubuntu on a fresh-installed machine. The mDNS/avahi is enabled by default on Ubuntu, please remember the host name you set during the installation.
+- Ensure if the machine is avaialbile on the mDNS, by checking it's IP of  the hostname. (the hostname in this sample is xps-13-7390)
     > avahi-resolve -n -4 -v xps-13-7390.local
 - Copy the ssh key to the target machine with ssh-copy-id
     > ssh-copy-id u@xps-13-7390.local:
@@ -64,7 +64,7 @@ This Anisble playbook is designed as a toolkit to help a Ubuntu Developer, quick
     > ./run-task.sh xps-13-7390.local enablement-focal/tasks/hello.yaml
 
 ## Known issue when playing with focal (Ubuntu 20.04)
-- ansible 2.5.1+dfsg-1ubuntu0.1 in bionic does not work well with python3, it requires a patch.
+- The ansible 2.5.1+dfsg-1ubuntu0.1 in bionic does not work well with python3, it requires a patch.
 
         --- /usr/lib/python2.7/dist-packages/ansible/modules/packaging/os/apt_repository.py	2018-04-19 08:01:49.000000000 +0800
         +++ /tmp/apt_repository.py	2020-03-18 00:05:12.980457762 +0800
