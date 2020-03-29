@@ -1,0 +1,15 @@
+- name: Disable Automatic Login
+  block:
+    - replace:
+        after: "[daemon]"
+        path: /etc/gdm3/custom.conf
+        regexp: '^(AutomaticLoginEnable = true)$'
+        replace: '#  \1'
+    - replace:
+        after: "[daemon]"
+        path: /etc/gdm3/custom.conf
+        regexp: '^(AutomaticLogin = ).*?$'
+        replace: '#  \1{{ansible_ssh_user}}'
+
+  become: yes
+  become_user: root

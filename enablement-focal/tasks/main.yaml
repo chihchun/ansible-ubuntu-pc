@@ -10,5 +10,8 @@
 - name: Disable timeout for screen dim.
   import_tasks: disable-screenlock.yaml
 
+- name: Enable automatic login
+  import_tasks: enable-auto-login.yaml
+
 - name: Install pc-sanity scripts.
   import_tasks: pc-sanity.yaml

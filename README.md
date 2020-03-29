@@ -21,16 +21,19 @@ This Anisble playbook is designed as a toolkit to help a Ubuntu Developer, quick
 - Disable screen lock/dim.
     > ./run-task.sh u-xps-13-7390.local enablement-focal/tasks/disable-screenlock.yaml
 
- - Disable background apt update.
+- Enable Automatic Login
+    > ./run-task.sh u-xps-13-7390.local enablement-focal/tasks/enable-auto-login.yaml
+
+- Disable background apt update.
     > ./run-task.sh u-xps-13-7390.local enablement-focal/tasks/apt-periodic.yaml
 
- - Register HINFO/workstation on mDNS.
+- Register HINFO/workstation on mDNS.
     > ./run-task.sh u-xps-13-7390.local enablement-focal/tasks/avahi.yaml
 
- - Instgall Google Chrome
+- Instgall Google Chrome
     > ./run-task.sh u-xps-13-7390.local roles/desktop-focal/tasks/google-chrome.yaml 
 
- - Instgall Dropbox
+- Instgall Dropbox
     > ./run-task.sh u-xps-13-7390.local roles/desktop-focal/tasks/dropbox.yaml 
 
 ## How to play
