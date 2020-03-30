@@ -1,0 +1,28 @@
+- apt:
+    name: "{{item}}"
+    state: '{{ item.state | default("present") }}'
+  with_items:
+    - lshw
+  become: yes
+  become_user: root
+
+- shell: date --iso-8601=minutes
+  register: time
+
+- name: Collect lshw information
+  block:
+    - shell: lshw > /tmp/lshw-{{time.stdout}}.txt
+    - shell: lshw -short > /tmp/lshw-short-{{time.stdout}}.txt
+    - shell: lshw -json > /tmp/lshw-{{time.stdout}}.json
+  become: yes
+  become_user: root
+
+- fetch:
+    src: "{{item.path}}"
+    dest: "{{enablment_workspace}}"
+    fail_on_missing: yes
+    flat: no
+  with_items:
+    - path: /tmp/lshw-{{time.stdout}}.txt
+    - path: /tmp/lshw-short-{{time.stdout}}.txt
+    - path: /tmp/lshw-{{time.stdout}}.json
