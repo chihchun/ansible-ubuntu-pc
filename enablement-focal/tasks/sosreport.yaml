@@ -1,0 +1,21 @@
+- name: collect sosreport
+  block:
+    - apt:
+        name: "{{item}}"
+        state: '{{ item.state | default("present") }}'
+      with_items:
+        - sosreport
+
+    - name: Collect sosreport information
+      block:
+        - shell: sosreport --alloptions --batch
+          register: output
+
+    - fetch:
+        src: "{{output.stdout|regex_search('/tmp/sosreport-.*?.tar.xz$', multiline=True)}}"
+        dest: "{{enablment_workspace}}"
+        fail_on_missing: yes
+        flat: no
+
+  become: yes
+  become_user: root
