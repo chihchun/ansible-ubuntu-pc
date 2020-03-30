@@ -22,7 +22,7 @@
 
 - fetch:
     src: "{{item.path}}"
-    dest: "/tmp/"
+    dest: "{{enablment_workspace}}"
     fail_on_missing: yes
     flat: no
   with_items:

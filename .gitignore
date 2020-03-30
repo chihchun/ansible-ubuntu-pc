@@ -1,5 +1,6 @@
 .gitignore
-ansible.log
 *.retry
+ansible.log
 deploy.sh
 hosts
+workspace
