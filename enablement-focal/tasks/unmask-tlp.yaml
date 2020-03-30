@@ -1,0 +1,13 @@
+- package_facts:
+    manager: apt
+
+# ansible does not work with the new systemd.
+# - systemd:
+#     name: tlp
+#     masked: no
+#   when: '"tlp" in ansible_facts.packages'
+
+- shell: systemctl unmask tlp
+  when: '"tlp" in ansible_facts.packages'
+  become: yes
+  become_user: root

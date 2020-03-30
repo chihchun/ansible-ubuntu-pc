@@ -1,0 +1,10 @@
+- package_facts:
+    manager: apt
+
+- systemd:
+    name: tlp
+    enabled: no
+    masked: yes
+  when: '"tlp" in ansible_facts.packages'
+  become: yes
+  become_user: root
