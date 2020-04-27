@@ -10,8 +10,11 @@
     suffix: .log
   register: logfile
 
+# Setup machine-manifest.json
+- shell: mkdir -p $HOME/.local/share/plainbox && ln -sf /usr/lib/prepare-checkbox-sanity/machine-manifest.json $HOME/.local/share/plainbox
+
 # only supports non-interactive job.
-- shell: checkbox-cli run --non-interactive --output-format "com.canonical.plainbox::tar" --output-file "{{report.path}}" "{{checkbox_job}}"
+- shell: /usr/bin/checkbox-cli run --non-interactive --output-format "com.canonical.plainbox::tar" --output-file "{{report.path}}" "{{checkbox_job}}"
   register: log
   environment:
     DISPLAY: ":0.0"
