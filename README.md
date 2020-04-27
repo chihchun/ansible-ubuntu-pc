@@ -7,7 +7,7 @@ This Anisble playbook is designed as a toolkit to help a Ubuntu Developer, quick
 ## Useful task/playbook for a Ubuntu developer
 
 - Quickly setup a machine with utilus for Desktop (including Google Chrome, Dropbox)
-    > ./deploy-playbook.sh xps-13-7390.local desktop.yml
+    > ./deploy-playbook.sh xps-13-7390.local desktop.yaml
 
 - Instgall Google Chrome
     > ./run-task.sh u-xps-13-7390.local roles/desktop-focal/tasks/google-chrome.yaml 
@@ -16,7 +16,7 @@ This Anisble playbook is designed as a toolkit to help a Ubuntu Developer, quick
     > ./run-task.sh u-xps-13-7390.local roles/desktop-focal/tasks/dropbox.yaml 
 
 - Setup checkbox for PC sanity tests, which is a test suite to verify if the system are well enabled.
-    > ./deploy-playbook.sh xps-13-7390.local enablement.yml
+    > ./deploy-playbook.sh xps-13-7390.local enablement.yaml
 
 - Enable Debug Symbol Packages on Ubutnu, for analyzing stack traces or debugging.
     > ./run-task.sh u-xps-13-7390.local enablement-focal/tasks/enable-ddebs.yaml
@@ -56,10 +56,10 @@ This Anisble playbook is designed as a toolkit to help a Ubuntu Developer, quick
         xps-13-7390.local ansible_ssh_user=u ansible_sudo_pass=u
 
 - Deploy the playbook on the target machine
-    > ansible-playbook -v --ask-become-pass --extra-vars=hosts=xps-13-7390.local desktop.yml
+    > ansible-playbook -v --ask-become-pass --extra-vars=hosts=xps-13-7390.local desktop.yaml
 
     or using a helper script.
-    > ./deploy-playbook.sh xps-13-7390.local desktop.yml
+    > ./deploy-playbook.sh xps-13-7390.local desktop.yaml
 
 - Run a task on the target machine
     This command will run the "hello" tasks on the machine.
