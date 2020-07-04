@@ -34,3 +34,6 @@
 
   - name: Setup fcitx
     command: "im-config -n fcitx"
+
+  - name: Display the ISO week date in the calendar
+    import_tasks: show-weekdate.yaml
