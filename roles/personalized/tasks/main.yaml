@@ -37,3 +37,10 @@
 
   - name: Display the ISO week date in the calendar
     import_tasks: show-weekdate.yaml
+
+  - name: install utils.
+    apt:
+      name: "{{item}}"
+      state: '{{ item.state | default("present") }}'
+    with_items:
+      - mlocale
