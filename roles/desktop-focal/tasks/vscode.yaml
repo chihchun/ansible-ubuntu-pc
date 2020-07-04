@@ -1,0 +1,6 @@
+- name: install Visual Studio Code
+  snap:
+    name: "{{item}}"
+    state: '{{ item.state | default("present") }}'
+  with_items:
+    - code
