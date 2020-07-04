@@ -1,0 +1,22 @@
+- name: Install Developement tools
+  snap:
+    name: "{{item}}"
+    state: '{{ item.state | default("present") }}'
+  with_items:
+    - lxd
+    - testflinger-cli
+    - energy-tools
+    - stress-ng
+
+- name: Install Developement tools
+  snap:
+    name: "{{item}}"
+    state: '{{ item.state | default("present") }}'
+    classic: yes
+  with_items:
+    - git-ubuntu
+    - multipass
+    - snapcraft
+    - ubuntu-make
+    - microk8s
+#     - qabro
