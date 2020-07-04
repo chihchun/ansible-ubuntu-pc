@@ -43,4 +43,4 @@
       name: "{{item}}"
       state: '{{ item.state | default("present") }}'
     with_items:
-      - mlocale
+      - mlocate
