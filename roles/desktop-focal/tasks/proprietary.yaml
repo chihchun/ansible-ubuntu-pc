@@ -1,3 +1,2 @@
 - import_tasks: dropbox.yaml
 - import_tasks: google-chrome.yaml
-- import_tasks: teams.yaml
