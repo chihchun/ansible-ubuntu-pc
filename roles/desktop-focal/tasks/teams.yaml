@@ -1,0 +1,13 @@
+- get_url:
+    url:  https://go.microsoft.com/fwlink/p/?linkid=2112886&clcid=0x404
+    dest: "/tmp/taems.deb"
+
+- name: install 
+  block:
+  - apt: name=gdebi state="present"
+
+  - name: install taems
+    shell: gdebi -n /tmp/taems.deb
+
+  become: yes
+  become_user: root
