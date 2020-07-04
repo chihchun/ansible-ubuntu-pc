@@ -44,3 +44,4 @@
       state: '{{ item.state | default("present") }}'
     with_items:
       - mlocate
+      - pwgen
