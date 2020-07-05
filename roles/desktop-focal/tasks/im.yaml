@@ -3,9 +3,10 @@
     name: "{{item}}"
     state: '{{ item.state | default("present") }}'
   with_items:
-    - electronic-wechat
+    - telegram-desktop
     - mattermost-desktop
     - zoom-client
+    - electronic-wechat
 
 - name: Install IM clients with classic snaps
   snap:
