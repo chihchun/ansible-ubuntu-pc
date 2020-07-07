@@ -1,4 +1,18 @@
-- name: Install Developement tools
+
+- name: Install debian pacakges for Ubuntu developement
+  apt:
+    name: '{{ item.name }}'
+    state: '{{ item.state | default("present") }}'
+    purge: yes
+
+  with_items:
+    - name: devscripts
+    - name: build-essential
+    - name: git-build-recipe
+    - name: pbuidler
+    - name: tig
+
+- name: Install snap pacakges for Ubuntu developement
   snap:
     name: "{{item}}"
     state: '{{ item.state | default("present") }}'
@@ -8,7 +22,7 @@
     - energy-tools
     - stress-ng
 
-- name: Install Developement tools
+- name: Install classic snap pacakges for Ubuntu developement
   snap:
     name: "{{item}}"
     state: '{{ item.state | default("present") }}'
