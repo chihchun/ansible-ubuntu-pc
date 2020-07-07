@@ -16,6 +16,7 @@
       - name: devscripts
       - name: build-essential
       - name: tig
+      - name: git-build-recipe
 
   # The dockerr for focal is not ready yet.
   # - name: install docker
