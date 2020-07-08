@@ -20,3 +20,4 @@
     code --install-extension tyriar.terminal-tabs
     code --install-extension davidanson.vscode-markdownlint
     code --install-extension hookyqr.beautify
+    code --install-extension roife.ubuntu-pastebin
