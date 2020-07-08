@@ -11,6 +11,7 @@
     - name: git-build-recipe
     - name: pbuidler
     - name: tig
+    - name: bzr
 
 - name: Install snap pacakges for Ubuntu developement
   snap:
