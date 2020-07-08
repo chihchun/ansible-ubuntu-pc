@@ -6,6 +6,17 @@
   with_items:
     - code
 - shell: |
+    code --install-extension VisualStudioExptTeam.vscodeintellicode
     code --install-extension ms-azuretools.vscode-docker
+    code --install-extension ms-vscode-remote.remote-containers
+    code --install-extension ms-python.python
+    code --install-extension ms-vscode.cmake-tools
     code --install-extension ms-vscode.cpptools
     code --install-extension dart-code.flutter
+    code --install-extension dart-code.dart-code
+    code --install-extension golang.go
+    code --install-extension eamodio.gitlens
+    code --install-extension formulahendry.terminal
+    code --install-extension tyriar.terminal-tabs
+    code --install-extension davidanson.vscode-markdownlint
+    code --install-extension hookyqr.beautify
