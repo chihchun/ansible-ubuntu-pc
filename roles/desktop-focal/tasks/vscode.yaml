@@ -22,3 +22,4 @@
     code --install-extension hookyqr.beautify
     code --install-extension roife.ubuntu-pastebin
     code --install-extension kenhowardpdx.vscode-gist
+    code --install-extension msjsdiag.debugger-for-chrome
