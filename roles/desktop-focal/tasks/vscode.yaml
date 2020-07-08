@@ -5,3 +5,5 @@
     classic: yes
   with_items:
     - code
+- shell: |
+    code --install-extension dart-code.flutter

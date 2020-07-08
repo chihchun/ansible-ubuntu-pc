@@ -32,5 +32,6 @@
     - multipass
     - snapcraft
     - ubuntu-make
+    - flutter
     # - microk8s
     # - qabro
