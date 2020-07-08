@@ -21,3 +21,4 @@
     code --install-extension davidanson.vscode-markdownlint
     code --install-extension hookyqr.beautify
     code --install-extension roife.ubuntu-pastebin
+    code --install-extension kenhowardpdx.vscode-gist
