@@ -7,4 +7,5 @@
     - code
 - shell: |
     code --install-extension ms-azuretools.vscode-docker
+    code --install-extension ms-vscode.cpptools
     code --install-extension dart-code.flutter
