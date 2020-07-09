@@ -6,9 +6,8 @@
       upgrade: dist
       update_cache: yes
 
-  # The dockerr for focal is not ready yet.
-  # - name: install docker
-  #   import_tasks: docker.yaml
+  - name: install docker
+    import_tasks: docker.yaml
 
   - name: install desktop packages
     apt:
