@@ -1,0 +1,50 @@
+
+- apt:
+    name: "{{item}}"
+    state: '{{ item.state | default("present") }}'
+  with_items:
+    - gnome-tweaks
+    - curl
+  become: yes
+  become_user: root
+
+- get_url:
+    url:  https://github.com/brunelli/gnome-shell-extension-installer/releases/download/v1.7/gnome-shell-extension-installer
+    dest: "/tmp/gnome-shell-extension-installer"
+
+- shell: |
+    cd /tmp
+    chmod 755 gnome-shell-extension-installer
+
+    # Impatience - GNOME Shell Extensions - https://extensions.gnome.org/extension/277/impatience/
+    ./gnome-shell-extension-installer 277 3.36
+
+    # Adds a switch for choosing audio output to the system menu. - https://extensions.gnome.org/extension/751/audio-output-switcher/
+    ./gnome-shell-extension-installer 751 3.36
+
+    # CPU Power Manager  - https://extensions.gnome.org/extension/945/cpu-power-manager/
+    ./gnome-shell-extension-installer 945 3.36
+
+    # Arrange workspaces in a two dimensional grid with workspace thumbnails. - https://extensions.gnome.org/extension/1485/workspace-matrix/
+    ./gnome-shell-extension-installer 1485 3.36
+
+    # Indicate busy status to block display of notifications and mute sounds. User options are provided to automatically set busy status at session start and schedule timeout of busy status. - https://extensions.gnome.org/extension/964/do-not-disturb-button/
+    ./gnome-shell-extension-installer 964 3.36
+
+    # Clipboard Manager extension for Gnome-Shell - Adds a clipboard indicator to the top panel, and caches clipboard history. - https://extensions.gnome.org/extension/779/clipboard-indicator/
+    ./gnome-shell-extension-installer 779 3.36
+
+    # GSConnect is a complete implementation of KDE Connect especially for GNOME Shell with Nautilus, Chrome and Firefox integration. It does not rely on the KDE Connect desktop application and will not work with it installed. - https://extensions.gnome.org/extension/1319/gsconnect/
+    ./gnome-shell-extension-installer 1319 3.36
+
+    # Shows CPU temperature, disk temperature, video card temperature, voltage and fan RPM (forked from xtranophilist/gnome-shell-extension-sensors) - https://extensions.gnome.org/extension/1145/sensory-perception/
+    # ./gnome-shell-extension-installer 1145 3.36
+
+    # Adds a switch for choosing audio output to the system menu. - https://extensions.gnome.org/extension/751/audio-output-switcher/
+    # ./gnome-shell-extension-installer 751 3.36
+
+    # Shows a list of sound output and input devices (similar to gnome sound settings) in the status menu below the volume slider. Various active ports like HDMI , Speakers etc. of the same device are also displayed for selection. V20+ needs python as dependency. If you want to continue with the old method without Python, use options to switch off New Port identification. But it works with only English - https://extensions.gnome.org/extension/906/sound-output-device-chooser/
+    ./gnome-shell-extension-installer 906 3.36
+
+    # restart gnome-shell
+    killall -SIGQUIT gnome-shell

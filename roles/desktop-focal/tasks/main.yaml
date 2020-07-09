@@ -49,6 +49,7 @@
   - name: install proprietary software
     import_tasks: proprietary.yaml
 
+  - import_tasks: gnome-shell.yaml
   - import_tasks: ubuntu-dev.yaml
   - import_tasks: media.yaml
   - import_tasks: im.yaml
