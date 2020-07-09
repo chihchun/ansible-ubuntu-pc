@@ -43,5 +43,8 @@
     # Shows a list of sound output and input devices (similar to gnome sound settings) in the status menu below the volume slider. Various active ports like HDMI , Speakers etc. of the same device are also displayed for selection. V20+ needs python as dependency. If you want to continue with the old method without Python, use options to switch off New Port identification. But it works with only English - https://extensions.gnome.org/extension/906/sound-output-device-chooser/
     ./gnome-shell-extension-installer 906 3.36
 
+    # Move applications to specific workspaces when they create windows. - https://extensions.gnome.org/extension/16/auto-move-windows/
+    ./gnome-shell-extension-installer 16 3.36
+
     # restart gnome-shell
     killall -SIGQUIT gnome-shell
