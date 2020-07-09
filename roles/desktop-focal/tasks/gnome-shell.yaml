@@ -28,9 +28,6 @@
     # Arrange workspaces in a two dimensional grid with workspace thumbnails. - https://extensions.gnome.org/extension/1485/workspace-matrix/
     ./gnome-shell-extension-installer 1485 3.36
 
-    # Indicate busy status to block display of notifications and mute sounds. User options are provided to automatically set busy status at session start and schedule timeout of busy status. - https://extensions.gnome.org/extension/964/do-not-disturb-button/
-    ./gnome-shell-extension-installer 964 3.36
-
     # Clipboard Manager extension for Gnome-Shell - Adds a clipboard indicator to the top panel, and caches clipboard history. - https://extensions.gnome.org/extension/779/clipboard-indicator/
     ./gnome-shell-extension-installer 779 3.36
 
