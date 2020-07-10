@@ -24,10 +24,10 @@
     ./gnome-shell-extension-installer 945 3.36
 
     # Shows CPU temperature, disk temperature, video card temperature (NVIDIA/Catalyst/Bumblebee&NVIDIA), voltage and fan RPM (forked from xtranophilist/gnome-shell-extension-sensors) - https://extensions.gnome.org/extension/841/freon/
-    # ./gnome-shell-extension-installer 841 3.36
+    ./gnome-shell-extension-installer 841 3.36
 
     # Shows CPU temperature, disk temperature, video card temperature, voltage and fan RPM (forked from xtranophilist/gnome-shell-extension-sensors) - https://extensions.gnome.org/extension/1145/sensory-perception/
-    ./gnome-shell-extension-installer 1145 3.36
+    # ./gnome-shell-extension-installer 1145 3.36
 
     ### Utils ###
     # Clipboard Manager extension for Gnome-Shell - Adds a clipboard indicator to the top panel, and caches clipboard history. - https://extensions.gnome.org/extension/779/clipboard-indicator/
