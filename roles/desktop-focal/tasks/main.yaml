@@ -23,13 +23,6 @@
       - name: gist
       - name: solaar-gnome3
 
-  - name: Install snap pacakges for Desktop utils
-    snap:
-      name: "{{item}}"
-      state: '{{ item.state | default("present") }}'
-    with_items:
-      - ripgrep
-
   - name: install language support for zh
     shell: apt install -y $(check-language-support -l zh-hant) | true
     register: language_support
