@@ -46,8 +46,11 @@
     # Move applications to specific workspaces when they create windows. - https://extensions.gnome.org/extension/16/auto-move-windows/
     ./gnome-shell-extension-installer 16 3.36
 
-    # Impatience - GNOME Shell Extensions - https://extensions.gnome.org/extension/277/impatience/
+    # Impatience - Speed up the gnome-shell animation speed https://extensions.gnome.org/extension/277/impatience/
     ./gnome-shell-extension-installer 277 3.36
+
+    # ShellTile A tiling window extension for GNOME Shell - https://extensions.gnome.org/extension/657/shelltile/
+    ./gnome-shell-extension-installer 657 3.34
 
     # Arrange workspaces in a two dimensional grid with workspace thumbnails. - https://extensions.gnome.org/extension/1485/workspace-matrix/
     ./gnome-shell-extension-installer 1485 3.36
