@@ -9,7 +9,7 @@
     - name: devscripts
     - name: build-essential
     - name: git-build-recipe
-    - name: pbuidler
+    - name: pbuilder
     - name: tig
     - name: bzr
 
