@@ -55,7 +55,8 @@
   - import_tasks: ubuntu-dev.yaml
   - import_tasks: media.yaml
   - import_tasks: im.yaml
-  - import_tasks: vscode.yaml
-
   become: yes
   become_user: root
+
+- import_tasks: vscode.yaml
+

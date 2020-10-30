@@ -5,6 +5,9 @@
     classic: yes
   with_items:
     - code
+  become: yes
+  become_user: root
+
 - shell: |
     code --install-extension VisualStudioExptTeam.vscodeintellicode
 
