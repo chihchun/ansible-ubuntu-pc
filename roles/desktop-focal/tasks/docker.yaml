@@ -7,7 +7,7 @@
 
   - name: Add Docker repository.
     apt_repository:
-      repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ hostvars[inventory_hostname].ansible_facts.lsb.codename }} stable"
+      repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
       filename: docker-ce
 
   - name: install docker-ce
