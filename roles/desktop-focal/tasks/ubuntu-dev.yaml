@@ -12,6 +12,8 @@
     - name: pbuilder
     - name: tig
     - name: bzr
+    - name: apt-file
+    - name: ansible
 
 - name: Install snap pacakges for Ubuntu developement
   snap:
