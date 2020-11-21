@@ -8,5 +8,6 @@
     state: '{{ item.state | default("present") }}'
   with_items:
     - prepare-checkbox-sanity
+    - plainbox-provider-checkbox
   become: yes
   become_user: root
