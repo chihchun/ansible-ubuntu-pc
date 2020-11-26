@@ -10,7 +10,16 @@
     with_items:
       - name: htop
       - name: tmux
+
+  - name: install vim packages
+    apt:
+      name: '{{ item.name }}'
+      state: '{{ item.state | default("present") }}'
+      purge: yes
+
+    with_items:
       - name: vim
+      - name: exuberant-ctags
 
   become: yes
   become_user: root
