@@ -8,6 +8,7 @@
   with_items:
     - name: devscripts
     - name: build-essential
+    - name: dpkg-dev
     - name: git-build-recipe
     - name: pbuilder
     - name: tig
