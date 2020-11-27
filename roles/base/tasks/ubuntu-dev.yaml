@@ -1,0 +1,25 @@
+
+- name: Install debian pacakges for Ubuntu developement
+  apt:
+    name: '{{ item.name }}'
+    state: '{{ item.state | default("present") }}'
+    purge: yes
+
+  with_items:
+    - name: devscripts
+    - name: build-essential
+    - name: git-build-recipe
+    - name: pbuilder
+    - name: tig
+    - name: bzr
+    - name: apt-file
+    - name: silversearcher-ag
+    
+- name: Install debian pacakges for Python developement
+  apt:
+    name: '{{ item.name }}'
+    state: '{{ item.state | default("present") }}'
+    purge: yes
+
+  with_items:
+    - name: python3-pip
