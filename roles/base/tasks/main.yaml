@@ -21,5 +21,7 @@
       - name: vim
       - name: exuberant-ctags
 
+  import_tasks: ubuntu-dev.yaml
+
   become: yes
   become_user: root
