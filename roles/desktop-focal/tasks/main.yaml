@@ -41,18 +41,14 @@
 
   - name: install sync tools
     apt:
-      name: '{{ item.name }}'
+      name: ['unison', 'rsync', 'jmtpfs']
       state: '{{ item.state | default("present") }}'
       purge: yes
-
-    with_items:
-      - name: unison
-      - name: rsync
 
   - name: install proprietary software
     import_tasks: proprietary.yaml
 
-  - import_tasks: gnome-shell.yaml
+  # - import_tasks: gnome-shell.yaml
   - import_tasks: ubuntu-dev.yaml
   - import_tasks: media.yaml
   - import_tasks: im.yaml
