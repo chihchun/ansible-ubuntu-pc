@@ -31,13 +31,9 @@
 
   - name: install Chinese language packages and fcitx
     apt:
-      name: '{{ item.name }}'
+      name: ['fcitx5', 'fcitx5-chewing']
       state: '{{ item.state | default("present") }}'
       purge: yes
-
-    with_items:
-      - name: fcitx
-      - name: fcitx-chewing
 
   - name: install sync tools
     apt:
