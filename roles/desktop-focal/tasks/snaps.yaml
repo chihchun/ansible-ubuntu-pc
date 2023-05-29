@@ -13,7 +13,7 @@
     # - microk8s
     # - qabro
 
-- name: Install snap pacakges for Ubuntu developement
+- name: install snap pacakges for ubuntu developement
   snap:
     name: "{{item}}"
     state: '{{ item.state | default("present") }}'
@@ -22,3 +22,8 @@
     - testflinger-cli
     - energy-tools
     - stress-ng
+
+- name: install snap pacakges
+  snap:
+    name: ['bitwarden' , 'bw']
+    state: '{{ item.state | default("present") }}'
