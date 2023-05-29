@@ -18,7 +18,7 @@
 
     ### System Status ### 
     # Displays Internet Speed - https://extensions.gnome.org/extension/104/netspeed/
-    ./gnome-shell-extension-installer 104 3.36
+    ./gnome-shell-extension-installer 104 40
 
     # CPU Power Manager  - https://extensions.gnome.org/extension/945/cpu-power-manager/
     ./gnome-shell-extension-installer 945 3.36
