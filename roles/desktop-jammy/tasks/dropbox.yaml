@@ -1,0 +1,13 @@
+- get_url:
+    url:  https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2020.03.04_amd64.deb
+    dest: "/tmp/dropbox.deb"
+
+- name: install 
+  block:
+  - apt: name=gdebi state="present"
+
+  - name: install dropbox
+    shell: gdebi -n /tmp/dropbox.deb
+
+  become: yes
+  become_user: root

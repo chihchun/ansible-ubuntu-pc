@@ -1,0 +1,20 @@
+- name: Install IMs
+  snap:
+    name: "{{item}}"
+    state: '{{ item.state | default("present") }}'
+  with_items:
+    - telegram-desktop
+    - mattermost-desktop
+    - zoom-client
+    - electronic-wechat
+
+- name: Install IM clients with classic snaps
+  snap:
+    name: "{{item}}"
+    state: '{{ item.state | default("present") }}'
+    classic: yes
+  with_items:
+    - skype
+    - slack
+
+- import_tasks: teams.yaml

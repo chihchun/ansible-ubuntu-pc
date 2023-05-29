@@ -1,0 +1,51 @@
+
+- name: Install debian pacakges for Ubuntu developement
+  apt:
+    name: '{{ item.name }}'
+    state: '{{ item.state | default("present") }}'
+    purge: yes
+
+  with_items:
+    - name: devscripts
+    - name: build-essential
+    - name: git-build-recipe
+    - name: pbuilder
+    - name: tig
+    - name: bzr
+    - name: apt-file
+    - name: ansible
+
+- name: Install snap pacakges for Ubuntu developement
+  snap:
+    name: "{{item}}"
+    state: '{{ item.state | default("present") }}'
+  with_items:
+    - lxd
+    - testflinger-cli
+    - energy-tools
+    - stress-ng
+
+- name: Install classic snap pacakges for Ubuntu developement
+  snap:
+    name: "{{item}}"
+    state: '{{ item.state | default("present") }}'
+    classic: yes
+  with_items:
+    - git-ubuntu
+    - multipass
+    - snapcraft
+    - ubuntu-make
+    - flutter
+    - ripgrep
+    # - microk8s
+    # - qabro
+
+
+- name: Install debian pacakges for Python developement
+  apt:
+    name: '{{ item.name }}'
+    state: '{{ item.state | default("present") }}'
+    purge: yes
+
+  with_items:
+    - name: python3-pip

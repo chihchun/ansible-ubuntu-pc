@@ -3,4 +3,4 @@
   gather_facts: yes
   roles:
     - base
-    - desktop-focal
+    - desktop-jammy

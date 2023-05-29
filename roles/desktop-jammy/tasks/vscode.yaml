@@ -1,0 +1,53 @@
+- name: install Visual Studio Code
+  snap:
+    name: "{{item}}"
+    state: '{{ item.state | default("present") }}'
+    classic: yes
+  with_items:
+    - code
+  become: yes
+  become_user: root
+
+- shell: |
+    code --install-extension VisualStudioExptTeam.vscodeintellicode
+
+    # Containers
+    code --install-extension ms-azuretools.vscode-docker
+    code --install-extension ms-vscode-remote.remote-containers
+    code --install-extension ms-vscode-remote.vscode-remote-extensionpack
+    code --install-extension ms-vscode-remote.remote-containers
+    code --install-extension ms-vscode-remote.remote-ssh
+    code --install-extension ms-vscode-remote.remote-ssh-edit
+
+    # Python development
+    code --install-extension ms-python.python
+
+    # C and triditional toolchains
+    code --install-extension ms-vscode.cmake-tools
+    code --install-extension ms-vscode.cpptools
+
+    # Golang 
+    code --install-extension golang.go
+
+    # Javascript js-beautify for VS Code
+    code --install-extension hookyqr.beautify
+
+    # Javascript developement
+    code --install-extension msjsdiag.debugger-for-chrome
+
+    # Flutter and Dart
+    code --install-extension dart-code.flutter
+    code --install-extension dart-code.dart-code
+
+    # Git
+    code --install-extension eamodio.gitlens
+    code --install-extension kenhowardpdx.vscode-gist
+
+    # terminal helper
+    code --install-extension formulahendry.terminal
+    code --install-extension tyriar.terminal-tabs
+    # Markdown
+    code --install-extension davidanson.vscode-markdownlint
+
+    # Ubuntu pastebin
+    code --install-extension roife.ubuntu-pastebin

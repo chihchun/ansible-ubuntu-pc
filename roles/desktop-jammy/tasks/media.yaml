@@ -1,0 +1,7 @@
+- name: Install Media Player
+  snap:
+    name: "{{item}}"
+    state: '{{ item.state | default("present") }}'
+  with_items:
+    - spotify
+    - vlc

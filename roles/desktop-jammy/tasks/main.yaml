@@ -1,0 +1,55 @@
+
+- name: Install packages
+  block:
+  - name: upgrade packages
+    apt:
+      upgrade: dist
+      update_cache: yes
+
+  - name: install docker
+    import_tasks: docker.yaml
+
+  - name: install desktop packages
+    apt:
+      name: '{{ item.name }}'
+      state: '{{ item.state | default("present") }}'
+      purge: yes
+
+    with_items:
+      - name: terminator
+      - name: gdebi
+      - name: scdaemon
+      - name: fasd
+      - name: gist
+      - name: solaar-gnome3
+      - name: usb-creator-gtk
+      - name: nemo
+
+  - name: install language support for zh
+    shell: apt install -y $(check-language-support -l zh-hant) | true
+    register: language_support
+
+  - name: install Chinese language packages and fcitx
+    apt:
+      name: ['fcitx5', 'fcitx5-chewing']
+      state: '{{ item.state | default("present") }}'
+      purge: yes
+
+  - name: install sync tools
+    apt:
+      name: ['unison', 'rsync', 'jmtpfs']
+      state: '{{ item.state | default("present") }}'
+      purge: yes
+
+  - name: install proprietary software
+    import_tasks: proprietary.yaml
+
+  # - import_tasks: gnome-shell.yaml
+  - import_tasks: ubuntu-dev.yaml
+  - import_tasks: media.yaml
+  - import_tasks: im.yaml
+  become: yes
+  become_user: root
+
+- import_tasks: vscode.yaml
+
