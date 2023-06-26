@@ -16,5 +16,3 @@
   with_items:
     - skype
     - slack
-
-- import_tasks: teams.yaml
