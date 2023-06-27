@@ -55,5 +55,8 @@
     # Arrange workspaces in a two dimensional grid with workspace thumbnails. - https://extensions.gnome.org/extension/1485/workspace-matrix/
     ./gnome-shell-extension-installer 1485 3.36
 
+    # Night Light Slider  https://extensions.gnome.org/extension/1276/night-light-slider/
+    ./gnome-shell-extension-installer 1276 3.36
+
     ### restart gnome-shell ###
     killall -SIGQUIT gnome-shell
