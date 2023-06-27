@@ -1,0 +1,6 @@
+- name: install bitwarden
+  snap:
+    name: ['bitwarden' , 'bw']
+    state: '{{ item.state | default("present") }}'
+  become: yes
+  become_user: root

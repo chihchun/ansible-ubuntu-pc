@@ -51,5 +51,8 @@
   become: yes
   become_user: root
 
-- import_tasks: vscode.yaml
+- name: install vscode
+  import_tasks: vscode.yaml
 
+- name: install bitwarden
+  import_tasks: bitwarden.yaml
