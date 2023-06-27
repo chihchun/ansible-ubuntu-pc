@@ -11,8 +11,8 @@
       upgrade: dist
       update_cache: yes
 
-  - name: install docker
-    import_tasks: docker.yaml
+  # - name: install docker
+  #   import_tasks: docker.yaml
 
   - name: install desktop packages
     apt:
