@@ -3,5 +3,5 @@
     name: "{{item}}"
     state: '{{ item.state | default("present") }}'
   with_items:
-    - spotify
+    # - spotify
     - vlc
