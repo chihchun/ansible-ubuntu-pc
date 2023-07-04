@@ -1,6 +1,11 @@
-- name: copy stuff
+- name: Synchronize stuff
   synchronize:
       src: "{{lookup('env','HOME')}}/stuff"
+      dest: "/home/{{ansible_ssh_user}}"
+
+- name: Synchronize Projects
+  synchronize:
+      src: "{{lookup('env','HOME')}}/Projects"
       dest: "/home/{{ansible_ssh_user}}"
 
 - name: Create symbolic link to bin
