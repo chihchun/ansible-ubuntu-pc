@@ -33,11 +33,12 @@
   - name: copy personal data
     import_tasks: stuff.yaml
 
-  - name: Setup fcitx
+  - name: Setup fcitx5
     command: "im-config -n fcitx5"
 
-  - name: Display the ISO week date in the calendar
-    import_tasks: show-weekdate.yaml
+
+  - name: GNOME tweaks
+    import_tasks: gnome-tweak.yaml
 
   - name: install utils.
     apt:

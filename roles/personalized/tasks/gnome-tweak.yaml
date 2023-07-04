@@ -1,2 +1,6 @@
 - name: Display the ISO week date in the calendar (https://gitlab.gnome.org/GNOME/gsettings-desktop-schemas/commit/b8aadf7abccfbd7108fb110593b6b179bb07a97d)
   shell: gsettings set org.gnome.desktop.calendar show-weekdate true
+
+- name: Set the theme to dark
+  shell: gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+  shell: gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark
