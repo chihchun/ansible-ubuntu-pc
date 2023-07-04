@@ -1,3 +1,8 @@
+- name: install OEM meta packages
+  apt_repository:
+    repo: "ppa:oem-solutions-engineers/oem-projects-meta"
+  become: yes
+  become_user: root
 
 - name: Install packages
   block:
@@ -18,13 +23,21 @@
     with_items:
       - name: terminator
       - name: gdebi
-      - name: scdaemon
-      - name: fasd
-      - name: gist
       - name: solaar-gnome3
       - name: usb-creator-gtk
       - name: nemo
+
+  - name: install system utils packages
+    apt:
+      name: '{{ item.name }}'
+      state: '{{ item.state | default("present") }}'
+      purge: yes
+    with_items:
+      - name: fasd
+      - name: gist
+      - name: scdaemon
       - name: silversearcher-ag
+      - name: ncdu
 
   - name: install language support for zh
     shell: apt install -y $(check-language-support -l zh-hant) | true
@@ -45,7 +58,7 @@
   - name: install proprietary software
     import_tasks: proprietary.yaml
 
-  # - import_tasks: gnome-shell.yaml
+  - import_tasks: gnome-shell.yaml
   - import_tasks: ubuntu-dev.yaml
   - import_tasks: media.yaml
   - import_tasks: im.yaml
