@@ -12,7 +12,6 @@
   snap:
     name: "{{item}}"
     state: '{{ item.state | default("present") }}'
-    classic: yes
   with_items:
     - skype
     - slack
