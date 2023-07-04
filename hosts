@@ -2,3 +2,6 @@
 chihchun-xps-13-7390.local ansible_ssh_user=chihchun
 g7-7790.local ansible_ssh_user=chihchun
 u-xps-13-7390.local ansible_ssh_user=u ansible_become_pass=u ansible_sudo_pass=u
+10.11.12.218 ansible_ssh_user=chihchun
+xps9320.local ansible_ssh_user=chihchun
+probook440g10.local ansible_ssh_user=chihchun
