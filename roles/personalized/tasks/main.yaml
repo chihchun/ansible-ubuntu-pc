@@ -35,7 +35,16 @@
 
   - name: Setup fcitx5
     command: "im-config -n fcitx5"
-
+  - name: Create fcitx5 config
+    file:
+      path: "{{ansible_env.HOME}}/.config/fcitx5"
+      state: directory
+  - name: Update fcitx5 profile
+    template:
+      src: fcitx5-profile
+      dest: "{{ansible_env.HOME}}/.config/fcitx5/profile"
+      mode: '0644'
+      backup: yes
 
   - name: GNOME tweaks
     import_tasks: gnome-tweak.yaml
