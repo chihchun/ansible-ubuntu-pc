@@ -21,7 +21,6 @@
     - lxd
     - testflinger-cli
     - energy-tools
-    - stress-ng
 
 - name: install snap pacakges
   snap:
