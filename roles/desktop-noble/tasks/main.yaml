@@ -1,6 +1,10 @@
+# OEM bootstrap meta packages 
+# - https://launchpad.net/~oem-solutions-engineers/+archive/ubuntu/oem-projects-meta
+# - https://launchpad.net/~canonical-oem-metapackage-uploaders/+archive/ubuntu/oem-metapackage-staging
 - name: install OEM meta packages
   apt_repository:
-    repo: "ppa:oem-solutions-engineers/oem-projects-meta"
+#    repo: "ppa:oem-solutions-engineers/oem-projects-meta"
+    repo: "ppa:canonical-oem-metapackage-uploaders/oem-metapackage-staging"
   become: yes
   become_user: root
 
@@ -21,11 +25,11 @@
       purge: yes
 
     with_items:
-      - name: terminator
-      - name: gdebi
-      - name: solaar-gnome3
-      - name: usb-creator-gtk
-      - name: nemo
+      - name: terminator # Terminal emulator
+      - name: gdebi # GDebi is a simple tool to install deb files.
+      - name: solaar # Logitech Unifying Receiver configuration tool
+      - name: usb-creator-gtk # Startup Disk Creator
+      - name: nemo # File manager
 
   - name: install system utils packages
     apt:
@@ -33,11 +37,12 @@
       state: '{{ item.state | default("present") }}'
       purge: yes
     with_items:
-      - name: fasd
-      - name: gist
-      - name: scdaemon
-      - name: silversearcher-ag
-      - name: ncdu
+      - name: fasd # Command-line productivity booster, offers quick access to files and directories, inspired by autojump, z and v.
+      - name: silversearcher-ag # The Silver Searcher (ag) is a code-searching tool similar to ack, but faster.
+      - name: ripgrep # ripgrep (rg) is a fast search tool similar to ag and ack.
+      - name: gist # Command-line utility for uploading Gists to GitHub.
+      - name: scdaemon # scdaemon is a daemon used by GnuPG for smartcard operations.
+      - name: ncdu # Ncdu is a disk usage analyzer with an ncurses interface.
 
   - name: install language support for zh
     shell: apt install -y $(check-language-support -l zh-hant) | true
