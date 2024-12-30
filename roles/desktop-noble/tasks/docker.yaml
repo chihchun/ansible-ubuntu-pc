@@ -1,0 +1,25 @@
+- name: Install docker-ce
+  block:
+
+  - name: Add Docker archive key
+    apt_key:
+      url: https://download.docker.com/linux/ubuntu/gpg
+
+  - name: Add Docker repository.
+    apt_repository:
+      repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+      filename: docker-ce
+
+  - name: install docker-ce
+    apt:
+      name: "{{item}}"
+      state: '{{ item.state | default("present") }}'
+    with_items:
+      - docker-ce
+      - docker-compose
+
+  - name: add remote user to docker group
+    shell: usermod -aG docker "{{ ansible_ssh_user }}"
+  
+  become: yes
+  become_user: root

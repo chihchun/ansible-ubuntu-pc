@@ -1,0 +1,13 @@
+- get_url:
+    url:  https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    dest: "/tmp/"
+
+- name: install 
+  block:
+  - apt: name=gdebi state="present"
+
+  - name: install google chrome
+    shell: gdebi -n /tmp/google-chrome-stable_current_amd64.deb
+
+  become: yes
+  become_user: root
