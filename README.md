@@ -1,8 +1,7 @@
 
-
 # Introduction
 
-This Anisble playbook is designed as a toolkit to help a Ubuntu Developer, quickly setup a machine as workstation, help to deploy the developement tools for hardware enablement work.
+This Ansible playbook serves as a toolkit for Ubuntu developers, enabling quick setup of a workstation and deployment of development tools for hardware enablement tasks.
 
 ## Useful task/playbook for a Ubuntu developer
 
