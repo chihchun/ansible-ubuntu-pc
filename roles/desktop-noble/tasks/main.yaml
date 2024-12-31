@@ -1,10 +1,12 @@
 # OEM bootstrap meta packages 
-# - https://launchpad.net/~oem-solutions-engineers/+archive/ubuntu/oem-projects-meta
-# - https://launchpad.net/~canonical-oem-metapackage-uploaders/+archive/ubuntu/oem-metapackage-staging
 - name: install OEM meta packages
   apt_repository:
-#    repo: "ppa:oem-solutions-engineers/oem-projects-meta"
-    repo: "ppa:canonical-oem-metapackage-uploaders/oem-metapackage-staging"
+    # production repo
+    # https://launchpad.net/~oem-solutions-engineers/+archive/ubuntu/oem-projects-meta
+    repo: "ppa:oem-solutions-engineers/oem-projects-meta"
+    # staging repo
+    # https://launchpad.net/~canonical-oem-metapackage-uploaders/+archive/ubuntu/oem-metapackage-staging
+    # repo: "ppa:canonical-oem-metapackage-uploaders/oem-metapackage-staging"
   become: yes
   become_user: root
 
@@ -75,3 +77,6 @@
 
 - name: install bitwarden
   import_tasks: bitwarden.yaml
+
+- name: install tailscale
+  import_tasks: tailscale.yaml
