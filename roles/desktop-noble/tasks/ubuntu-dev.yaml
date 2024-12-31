@@ -23,7 +23,6 @@
     - lxd
     - testflinger-cli
     - energy-tools
-    - stress-ng
 
 - name: Install classic snap pacakges for Ubuntu developement
   snap:
