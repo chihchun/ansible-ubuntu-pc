@@ -2,10 +2,10 @@
 - name: Setup for personal settings.
   block:
 
-  - name: install zim
-    import_tasks: zim.yaml
-    become: yes
-    become_user: root
+#   - name: install zim
+#     import_tasks: zim.yaml
+#     become: yes
+#     become_user: root
 
   - name: install build tools packages
     apt:
@@ -54,7 +54,7 @@
       name: "{{item}}"
       state: '{{ item.state | default("present") }}'
     with_items:
-      - mlocate
+      #      - mlocate
       - pwgen
     become: yes
     become_user: root
