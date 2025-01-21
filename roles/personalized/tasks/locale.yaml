@@ -1,0 +1,33 @@
+- name: Replace /etc/locale.conf with new locale settings
+  ansible.builtin.copy:
+    content: |
+      LANG="zh_TW.UTF-8"
+      LC_NUMERIC="en_US.UTF-8"
+      LC_TIME="C.UTF-8"
+      LC_MONETARY="en_US.UTF-8"
+      LC_PAPER="en_US.UTF-8"
+      LC_NAME="en_US.UTF-8"
+      LC_ADDRESS="en_US.UTF-8"
+      LC_TELEPHONE="en_US.UTF-8"
+      LC_MEASUREMENT="en_US.UTF-8"
+      LC_IDENTIFICATION="en_US.UTF-8"
+    dest: /etc/locale.conf
+
+- name: Generate the desired locale
+  command: locale-gen
+  # creates: /usr/lib/locale/locale-archive
+
+- name: Setup fcitx5
+  command: "im-config -n fcitx5"
+
+- name: Create fcitx5 config
+  file:
+    path: "{{ansible_env.HOME}}/.config/fcitx5"
+    state: directory
+
+- name: Update fcitx5 profile
+  template:
+    src: fcitx5-profile
+    dest: "{{ansible_env.HOME}}/.config/fcitx5/profile"
+    mode: '0644'
+    backup: yes

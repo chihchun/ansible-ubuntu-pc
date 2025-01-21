@@ -2,49 +2,18 @@
 - name: Setup for personal settings.
   block:
 
-#   - name: install zim
-#     import_tasks: zim.yaml
-#     become: yes
-#     become_user: root
-
-  - name: install build tools packages
-    apt:
-      name: '{{ item.name }}'
-      state: '{{ item.state | default("present") }}'
-      purge: yes
-
-    with_items:
-      - name: zsh
-    become: yes
-    become_user: root
-
-  - name: ohmyzsh zsh configuration
-    git:
-      repo: 'https://github.com/chihchun/oh-my-zsh.git'
-      dest: "{{ansible_env.HOME}}/.oh-my-zsh"
-      depth: 1
-      version: chihchun
-
-  - name: Change default shell to zsh
-    shell: chsh -s $(which zsh) "{{ansible_ssh_user}}"
+  - name: install zsh
+    import_tasks: zsh.yaml
     become: yes
     become_user: root
 
   - name: copy personal data
     import_tasks: stuff.yaml
 
-  - name: Setup fcitx5
-    command: "im-config -n fcitx5"
-  - name: Create fcitx5 config
-    file:
-      path: "{{ansible_env.HOME}}/.config/fcitx5"
-      state: directory
-  - name: Update fcitx5 profile
-    template:
-      src: fcitx5-profile
-      dest: "{{ansible_env.HOME}}/.config/fcitx5/profile"
-      mode: '0644'
-      backup: yes
+  - name: setup locale for Chinese
+    import_tasks: locale.yaml
+    become: yes
+    become_user: root
 
   - name: GNOME tweaks
     import_tasks: gnome-tweak.yaml
