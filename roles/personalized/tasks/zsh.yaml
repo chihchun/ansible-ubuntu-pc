@@ -1,15 +1,4 @@
 
-- name: install zsh
-  apt:
-    name: '{{ item.name }}'
-    state: '{{ item.state | default("present") }}'
-    purge: yes
-
-  with_items:
-    - name: zsh
-  become: yes
-  become_user: root
-
 - name: ohmyzsh zsh configuration
   git:
     repo: 'https://github.com/chihchun/oh-my-zsh.git'
@@ -19,5 +8,16 @@
 
 - name: Change default shell to zsh
   shell: chsh -s $(which zsh) "{{ansible_ssh_user}}"
+  become: yes
+  become_user: root
+
+- name: install zsh
+  apt:
+    name: '{{ item.name }}'
+    state: '{{ item.state | default("present") }}'
+    purge: yes
+
+  with_items:
+    - name: zsh
   become: yes
   become_user: root
