@@ -1,7 +1,7 @@
 - name: Replace /etc/locale.conf with new locale settings
   ansible.builtin.copy:
     content: |
-      LANG="zh_TW.UTF-8"
+      LANG="en_US.UTF-8"
       LC_NUMERIC="en_US.UTF-8"
       LC_TIME="C.UTF-8"
       LC_MONETARY="en_US.UTF-8"
